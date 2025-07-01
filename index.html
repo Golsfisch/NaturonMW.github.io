@@ -1,96 +1,98 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title></title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-
-
-  /* Pfeil-Button oben links */
-  #menuToggle {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    font-size: 30px;
-    color: #2E8B57;
-    background: white;
-    border-radius: 4px;
-    cursor: pointer;
-    z-index: 1100;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  }
-
-  /* Hauptinhalt etwas verschieben, wenn Sidebar offen */
-  #mainContent.shifted {
-    margin-left: 250px;
-    transition: margin-left 0.3s;
-  }
-
-  /* Sidebar offen */
-  #sidebar.open {
-    width: 250px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NaturonMW</title>
+  <style>
+    /* Einfaches Grundlayout */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #2a7a2a;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      position: relative;
+    }
+    #menuToggle {
+      cursor: pointer;
+      font-size: 24px;
+      margin-right: 15px;
+      user-select: none;
+      transform: rotate(45deg); /* Pfeil-Drehung */
+    }
+    #logo {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+    /* Seitenmenü (hidden by default) */
+    #sideMenu {
+      position: fixed;
+      top: 0; left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #3b993b;
+      color: white;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+    #sideMenu.show {
+      left: 0;
+    }
+    #sideMenu ul {
+      list-style: none;
+      padding: 0;
+    }
+    #sideMenu ul li {
+      padding: 15px 25px;
+      border-bottom: 1px solid #5db95d;
+    }
+    #sideMenu ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #sideMenu ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
-<div id="menuToggle" title="Menü ein-/ausklappen">&#9654;</div>
+<header>
+  <div id="menuToggle">&#10148;</div> <!-- Pfeil nach rechts, gedreht -->
+  <div id="logo">NaturonMW</div> <!-- Dein bestehendes Logo-Text -->
+</header>
 
-<div id="sidebar">
-  <a href="index.html">Startseite</a>
-  <a href="CrowdfundingProtokoll.html">Crowdfunding Protokoll</a>
-  <a href="ReadMe.html">ReadMe</a>
-  <hr style="border-color:#3ca36c; margin: 10px 0;">
-  <a href="#">In Planung</a>
-  <a href="#">Mitarbeiter gesucht</a>
-  <a href="#">Kosmetik</a>
-</div>
-
-<div id="mainContent">
-  <!-- Hier kommt dein Seiteninhalt rein -->
-  <h1 style="margin-left: 60px;">NaturonMW</h1>
-  <p>Dein bestehender Inhalt …</p>
-</div>
+<nav id="sideMenu">
+  <ul>
+    <li><a href="#produkte">Produkte</a></li>
+    <li><a href="CrowdfundingProtokoll.html">Crowdfunding Protokoll</a></li>
+    <li><a href="ReadMe.html">ReadMe</a></li>
+    <li><a href="#planung">- In Planung</a></li>
+    <li><a href="#mitarbeiter">- Mitarbeiter gesucht</a></li>
+    <li><a href="#kosmetik">- Kosmetik</a></li>
+    <li><a href="mailto:wamich2@gmail.com">Kontakt</a></li>
+  </ul>
+</nav>
 
 <script>
   const menuToggle = document.getElementById('menuToggle');
-  const sidebar = document.getElementById('sidebar');
-  const mainContent = document.getElementById('mainContent');
-
-  let sidebarOpen = false;
+  const sideMenu = document.getElementById('sideMenu');
 
   menuToggle.addEventListener('click', () => {
-    sidebarOpen = !sidebarOpen;
-    if (sidebarOpen) {
-      sidebar.classList.add('open');
-      mainContent.classList.add('shifted');
-      menuToggle.innerHTML = '&#9664;'; // Pfeil nach links (zum Schließen)
-    } else {
-      sidebar.classList.remove('open');
-      mainContent.classList.remove('shifted');
-      menuToggle.innerHTML = '&#9654;'; // Pfeil nach rechts (zum Öffnen)
-    }
+    sideMenu.classList.toggle('show');
   });
 </script>
 
 </body>
 </html>
-
-
-
-
-
 
 
 <!DOCTYPE html>
