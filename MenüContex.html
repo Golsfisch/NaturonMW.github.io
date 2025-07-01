@@ -80,4 +80,35 @@
   <hr style="border-color:#3ca36c; margin: 10px 0;">
   <a href="#">In Planung</a>
   <a href="#">Mitarbeiter gesucht</a>
-  <a href
+  <a href="#">Kosmetik</a>
+</div>
+
+<div id="mainContent">
+  <!-- Hier kommt dein Seiteninhalt rein -->
+  <h1 style="margin-left: 60px;">NaturonMW</h1>
+  <p>Dein bestehender Inhalt …</p>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+  const mainContent = document.getElementById('mainContent');
+
+  let sidebarOpen = false;
+
+  menuToggle.addEventListener('click', () => {
+    sidebarOpen = !sidebarOpen;
+    if (sidebarOpen) {
+      sidebar.classList.add('open');
+      mainContent.classList.add('shifted');
+      menuToggle.innerHTML = '&#9664;'; // Pfeil nach links (zum Schließen)
+    } else {
+      sidebar.classList.remove('open');
+      mainContent.classList.remove('shifted');
+      menuToggle.innerHTML = '&#9654;'; // Pfeil nach rechts (zum Öffnen)
+    }
+  });
+</script>
+
+</body>
+</html>
