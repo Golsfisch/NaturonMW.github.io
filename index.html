@@ -1,6 +1,127 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NaturonMW</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Sidebar-Container */
+  #sidebar {
+    height: 100%;
+    width: 0; /* Start geschlossen */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: #2E8B57;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+  }
+
+  #sidebar a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+  }
+
+  #sidebar a:hover {
+    background-color: #3ca36c;
+  }
+
+  /* Pfeil-Button oben links */
+  #menuToggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 30px;
+    color: #2E8B57;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1100;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  /* Hauptinhalt etwas verschieben, wenn Sidebar offen */
+  #mainContent.shifted {
+    margin-left: 250px;
+    transition: margin-left 0.3s;
+  }
+
+  /* Sidebar offen */
+  #sidebar.open {
+    width: 250px;
+  }
+</style>
+</head>
+<body>
+
+<div id="menuToggle" title="Menü ein-/ausklappen">&#9654;</div>
+
+<div id="sidebar">
+  <a href="index.html">Startseite</a>
+  <a href="CrowdfundingProtokoll.html">Crowdfunding Protokoll</a>
+  <a href="ReadMe.html">ReadMe</a>
+  <hr style="border-color:#3ca36c; margin: 10px 0;">
+  <a href="#">In Planung</a>
+  <a href="#">Mitarbeiter gesucht</a>
+  <a href="#">Kosmetik</a>
+</div>
+
+<div id="mainContent">
+  <!-- Hier kommt dein Seiteninhalt rein -->
+  <h1 style="margin-left: 60px;">NaturonMW</h1>
+  <p>Dein bestehender Inhalt …</p>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+  const mainContent = document.getElementById('mainContent');
+
+  let sidebarOpen = false;
+
+  menuToggle.addEventListener('click', () => {
+    sidebarOpen = !sidebarOpen;
+    if (sidebarOpen) {
+      sidebar.classList.add('open');
+      mainContent.classList.add('shifted');
+      menuToggle.innerHTML = '&#9664;'; // Pfeil nach links (zum Schließen)
+    } else {
+      sidebar.classList.remove('open');
+      mainContent.classList.remove('shifted');
+      menuToggle.innerHTML = '&#9654;'; // Pfeil nach rechts (zum Öffnen)
+    }
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NaturonMW – Natürlich. Regional. Visionär.</title>
