@@ -1,2 +1,2 @@
-# NaturonMW.github.io
+# naturonmw.com
 Webseite 
